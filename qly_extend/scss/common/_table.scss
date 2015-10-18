@@ -1,0 +1,77 @@
+$bg-secondary: #f9fafc;
+$table-border-color: #ddd !default;
+
+.QLY-table-bordered {
+  border: 1px solid $table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid $table-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 1px;
+    }
+  }
+}
+
+
+.QLY-table {
+  border: 1px solid #ddd;
+  table-layout: fixed;
+  margin: 0;
+  background: #fff;
+
+  thead {
+    color: #333;
+    background: $bg-secondary;
+    th {
+      font-weight: normal;
+      overflow: hidden;
+      white-space: nowrap;
+      padding-left: 10px;
+      text-align: left;
+      height: 28px;
+    }
+  }
+  tbody {
+    text-align: center;
+  }
+  tfoot {
+    background: $bg-secondary;
+  }
+  td {
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 10px;
+    height: 28px;
+  }
+}
+
+.QLY-table-word {
+  width: 225px;
+  text-align: left;
+}
+
+.QLY-table-value {
+  text-align: left;
+  width: 110px;
+}
+
+.QLY-table-footer {
+  margin-top: 12px;
+  text-align: left;
+}
+.QLY-copy-right {
+  float: left;
+}
+.QLY-more {
+  color: $color;
+  float: right;
+}

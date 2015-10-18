@@ -1,0 +1,29 @@
+{
+  "name": "qly_extend",
+  "version": "0.1.0",
+  "author": "cqol_77@126.con",
+  "description": "qly chrome extend",
+  "license": "BSD",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-replace": "~0.9.2",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-cmd-transport": "~0.2.3",
+    "grunt-cmd-concat": "~0.2.2",
+    "grunt-contrib-compress": "~0.5.0",
+    "grunt-contrib-cssmin": "~0.6.1",
+    "cmd-util": "https://github.com/qiushilee/cmd-util/archive/master.tar.gz",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-imagemin": "^0.2.0",
+    "grunt-spritesmith": "^1.26.0",
+    "grunt-ssh": "~0.11.1",
+    "grunt-jsttojs-cmd": "0.0.2",
+    "grunt-contrib-compass": "~0.5.0",
+    "grunt-cdn": "https://github.com/RobinQu/grunt-cdn/archive/master.tar.gz",
+    "grunt-contrib-handlebars": "https://github.com/temper357/grunt-contrib-handlebars/archive/tk.tar.gz"
+  }
+}

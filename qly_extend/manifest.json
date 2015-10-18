@@ -1,0 +1,30 @@
+﻿{
+  "manifest_version": 2,
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    "default_title": "千里眼辅助插件"
+  },
+  "content_scripts": [
+    {
+      "js": ["js/lib/jquery.js","js/content.js"],
+      "matches": [ "http://*/*","https://*/*" ],
+      "run_at": "document_end"
+    }
+  ],
+
+  "web_accessible_resources": [
+    "js/*",
+    "img/*",
+    "css/*"
+  ],
+
+  "background": {
+    "page": "html/background.html"
+  },
+  "description": "千里眼辅助插件",
+
+  "name": "千里眼辅助插件",
+  "permissions": [ "tabs", "http://*/*", "https://*/*", "cookies", "unlimitedStorage", "storage" ],
+  "version": "0.0.2",
+  "update_url": "http://clients2.google.com/service/update2/crx"
+}

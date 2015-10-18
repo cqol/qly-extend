@@ -1,0 +1,25 @@
+.QLY-input {
+  float: left;
+  height: 21px;
+  width: 255px;
+  padding-left: 3px;
+}
+
+.QLY-search {
+  float: right;
+  height: 100%;
+  line-height: 25px;
+  text-align: center;
+  background-color: $color;
+  width: 65px;
+  border: 0;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.QLY-searchBar {
+  cursor: pointer;
+  overflow: hidden;
+  height: 25px;
+  margin-bottom: 8px;
+}
