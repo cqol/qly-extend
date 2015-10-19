@@ -394,7 +394,10 @@ __tk__define(function (require, exports, module) {
 			},
 			setContentASync: function (content) {
 				var that = this;
+				console.log(this.getUrl());
 				this.xhr = $.ajax({
+					dataType: 'jsonp',
+					scriptCharset:'UTF-8',
 					url: this.getUrl(),
 					type: 'GET',
 					cache: this.getCache(),

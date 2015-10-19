@@ -5,6 +5,8 @@ __tk__define(function (require, exports, module) {
 		$ = require('../lib/jquery'),
 		host = require('../host'),
 		utils = require('../utils'),
+		event = require('./event.handle'),
+
 		body = $('body');
 	// 淘宝、天猫详情页
 	function taobao_detail() {
@@ -82,6 +84,7 @@ __tk__define(function (require, exports, module) {
 		}
 	}
 
+	console.log(event);
 	// 淘宝、天猫list
 	function taobao_list() {
 		console.log('list');

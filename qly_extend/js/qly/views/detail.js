@@ -67,7 +67,7 @@ __tk__define(function (require, exports, module) {
 					type:'async',
 					url:'https://browserre.taotaosou.com/priceHistory.do?' +
 					'itemId=521364198849&website=taobao&price=8400&callback=?',
-					content: function () {
+					content: function (data) {
 						return tpl['qly/detail.ztc']();
 					},
 
