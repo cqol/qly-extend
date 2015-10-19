@@ -65,7 +65,8 @@ __tk__define(function (require, exports, module) {
 				console.log('价格曲线');
 				$('.QLY-price').webuiPopover({
 					type:'async',
-					url:'http://192.168.1.78:8000/addFav',
+					url:'https://browserre.taotaosou.com/priceHistory.do?' +
+					'itemId=521364198849&website=taobao&price=8400&callback=?',
 					content: function () {
 						return tpl['qly/detail.ztc']();
 					},

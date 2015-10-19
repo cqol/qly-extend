@@ -8,7 +8,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"QLY-detail-box\">\n  <ul class=\"QLY-list-box\">\n    <li class=\"QLY-item\">\n      <span class=\"QLY-logo\"></span>\n    </li>\n    <li class=\"QLY-item\">\n      距离宝贝下架还有: 2天3时13分\n    </li>\n    <li class=\"QLY-item\">\n      收录时间: 2015-09-11\n    </li>\n    <li class=\"QLY-item\">\n      <ul class=\"QLY-word-list\">\n        <li>搜索词: </li>\n        <li>淘宝搜索(<i class=\"QLY-i\" id=\"QLY-taobaosearch\">234</i>)</li>\n        <li>直通车(<i class=\"QLY-i\" id=\"QLY-ztc\">12</i>)</li>\n        <li>无线搜索(<i class=\"QLY-i\" id=\"QLY-msearch\">123</i>)</li>\n        <li>无线直通车(<i class=\"QLY-i\" id=\"QLY-mztc\">0</i>)</li>\n        <li id=\"QLY-price\">价格调整</li>\n        <li id=\"QLY-taoword\">淘词</li>\n      </ul>\n    </li>\n  </ul>\n\n</div>";
+  return "<div class=\"QLY-detail-box\">\n  <ul class=\"QLY-list-box\">\n    <li class=\"QLY-item\">\n      <span class=\"QLY-logo\"></span>\n    </li>\n    <li class=\"QLY-item\">\n      距离宝贝下架还有: 2天3时13分\n    </li>\n    <li class=\"QLY-item\">\n      收录时间: 2015-09-11\n    </li>\n    <li class=\"QLY-item\">\n      <ul class=\"QLY-word-list\">\n        <li>搜索词: </li>\n        <li>淘宝搜索(<i class=\"QLY-i QLY-taobaosearch\">234</i>)</li>\n        <li>直通车(<i class=\"QLY-i QLY-ztc\">12</i>)</li>\n        <li>无线搜索(<i class=\"QLY-i QLY-msearch\">123</i>)</li>\n        <li>无线直通车(<i class=\"QLY-i QLY-mztc\">0</i>)</li>\n        <li class=\"QLY-price\">价格调整</li>\n        <li class=\"QLY-taoword\">淘词</li>\n      </ul>\n    </li>\n  </ul>\n\n</div>";
   });
 
 this["JST"]["qly/detail.msearch"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
