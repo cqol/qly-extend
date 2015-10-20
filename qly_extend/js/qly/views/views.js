@@ -1,11 +1,11 @@
 //Views 模块统一出口，外部调用，只要依赖此模块即可
 __tk__define(function (require, exports, module) {
 	var win = window,
-
 		$ = require('../lib/jquery'),
 		host = require('../host'),
 		utils = require('../utils'),
-		event = require('./event.handle'),
+		Product = require('../product'),
+		//event = require('./event.handle'),
 
 		body = $('body');
 	// 淘宝、天猫详情页
@@ -75,16 +75,16 @@ __tk__define(function (require, exports, module) {
 		};
 		try {
 			if (getContainer()) {
+				Product.item = new Product(getContainer());
 				require('./detail').init();
 			} else {
 				console.error('未匹配detail页图片...');
 			}
 		} catch (e) {
-			console.log(e.message);
+			console.error(e.message);
 		}
 	}
 
-	console.log(event);
 	// 淘宝、天猫list
 	function taobao_list() {
 		console.log('list');

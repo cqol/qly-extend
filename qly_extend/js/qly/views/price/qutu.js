@@ -6,7 +6,6 @@ __tk__define(function (require, exports, module) {
 		product = require('../../product'),
 		body = $('body');
 
-	console.log(product.item.getPrice());
 	var price = '';
 	//商品当前价格；
 	if (product.item.getPrice() !== '') {
@@ -48,7 +47,8 @@ __tk__define(function (require, exports, module) {
 		return p;
 	}
 
-	function TkQutu(bigdata, config) {
+	function TkQutu(bigdata, obj) {
+		this.wrap = obj;
 		var data = [];
 		if ('priceHistoryList' in bigdata) {
 			data = bigdata.priceHistoryList;
@@ -77,7 +77,7 @@ __tk__define(function (require, exports, module) {
 		}
 		this.tag = tag;
 
-		this.fixs = $.extend({}, defalut, config);
+		this.fixs = $.extend({}, defalut);
 
 		//y轴间隔数；
 		this.warpNum = 6;
@@ -137,7 +137,7 @@ __tk__define(function (require, exports, module) {
 		//每个像素对应的价格差值；
 		this.matchX = this.fixs.xSetpPx / 10;
 
-		this.btn = $('.QLY-mind-sub-qutu');
+		this.btn = this.wrap.find('.QLY-mind-sub-qutu');
 		this.initBtn(this.btn, tag);
 		//底部画布
 		this.drawCanvasBase(this.color, wending);
@@ -148,81 +148,12 @@ __tk__define(function (require, exports, module) {
 	}
 
 	TkQutu.prototype = {
-		getBtnClass: function (obj, tag) {
-			var classTag = 'TK-icon-sub-null';
-			var iconText = $('.J-TK-mind-sub-icon-text');
-			//差价幅度
-			//var setpMatch = true;
-			if (tag) {
-				classTag = 'TK-icon-sub-null';
-				iconText.text('价格曲线');
-			} else {
-				/*if (this.nPrice > this.avg) {
-				 classTag = 'TK-icon-sub-up';
-				 iconText.text('涨价啦!');
-				 } else if (this.nPrice < this.avg) {
-				 this.color = '#63d089';
-				 classTag = 'TK-icon-sub-down';
-				 iconText.text('降价啦!');
-				 } else if (this.nPrice === this.avg) {
-				 if (this.lengthSecPrice > this.nPrice) {
-				 this.color = '#63d089';
-				 classTag = 'TK-icon-sub-down';
-				 iconText.text('降价啦!');
-				 } else if (this.lengthSecPrice < this.nPrice) {
-				 classTag = 'TK-icon-sub-up';
-				 iconText.text('涨价啦!');
-				 } else {
-				 classTag = 'TK-icon-sub-end';
-				 iconText.text('价格很平稳');
-				 }
-				 }*/
-				/*console.log(this.min)
-				 console.log(this.lengthThridPrice)
-				 console.log(this.nPrice)*/
-
-				//如果 是几分的 情况！
-				if (Math.abs(this.lengthSecPrice - this.nPrice) < 10) {
-					//取倒数第三个点 不行就写个递归！
-					this.lengthSecPrice = this.lengthThridPrice;
-				}
-
-				if (this.lengthSecPrice > this.nPrice) {
-					this.color = '#63d089';
-					classTag = 'TK-icon-sub-down';
-					iconText.text('降价啦!');
-				} else if (this.lengthSecPrice < this.nPrice) {
-					classTag = 'TK-icon-sub-up';
-					iconText.text('涨价啦!');
-				} else if (this.min === this.nPrice) {
-					if (this.max > this.nPrice) {
-						this.color = '#63d089';
-						classTag = 'TK-icon-sub-down';
-						iconText.text('降价啦!');
-					} else {
-						classTag = 'TK-icon-sub-end';
-						iconText.text('价格很平稳');
-					}
-				} else if (this.min > this.nPrice) {
-					this.color = '#63d089';
-					classTag = 'TK-icon-sub-down';
-					iconText.text('降价啦!');
-				} else if (this.min < this.nPrice) {
-					classTag = 'TK-icon-sub-up';
-					iconText.text('涨价啦!');
-				} else {
-					classTag = 'TK-icon-sub-end';
-					iconText.text('价格很平稳');
-				}
-			}
-			obj.addClass(classTag);
-		},
 
 		initBtn: function (obj, tag) {
 			var timer = null,
 				delay = false;
-			this.msgBox = $('.QLY-qutu-sub-msg');
-			var qutuBox = $('.QLY-qutu-sub-warp');
+			this.msgBox = this.wrap.find('.QLY-qutu-sub-msg');
+			var qutuBox = this.wrap.find('.QLY-qutu-sub-warp');
 			//qutuBox.addClass('QLY-qutu-sub-wrap-hover');
 
 			obj.on('mouseenter', function () {
@@ -248,13 +179,13 @@ __tk__define(function (require, exports, module) {
 					timer = setTimeout(function () {
 						qutuBox.removeClass('QLY-qutu-sub-wrap-hover');
 						utils.stat('tool_curve_PV', true);
+						tts_stat.trackLog("tool_curve_PV");
 
 						delay = false;
 						timer = null;
 					}, 300);
 				}
 			});
-			this.getBtnClass(obj, tag);
 
 		},
 		getAvg: function (data) {
@@ -599,7 +530,7 @@ __tk__define(function (require, exports, module) {
 		 * 曲线图底图
 		 */
 		drawCanvasBase: function (color, wending) {
-			var canvas = $('.QLY-canvas-sub-base')[0];
+			var canvas = this.wrap.find('.QLY-canvas-sub-base')[0];
 			var base = this.fixs.beginXY,
 				_this = this;
 
@@ -656,6 +587,9 @@ __tk__define(function (require, exports, module) {
 				var n;
 				//无采集数据
 				if (this.tag) {
+					//虚线起点
+					x[0] = 118;
+
 					for (var j = 0; j < y.length; j++) {
 						ctx.beginPath();
 						ctx.arc(x[j], y[j], 5, 0, Math.PI * 2, false);
@@ -711,11 +645,11 @@ __tk__define(function (require, exports, module) {
 					ctx.font = "24px tahoma";
 					ctx.fillStyle = "#666";
 
-					ctx.fillText('最高价', 760, (this.getYdata().maxY + 2) * 2);
+					/*ctx.fillText('最高价', 760, (this.getYdata().maxY + 2) * 2);
 					ctx.fillText('¥' + parsePrice(this.max, true), 760, (this.getYdata().maxY + 14) * 2);
 
 					ctx.fillText('最低价', 760, (this.getYdata().minY + 2) * 2);
-					ctx.fillText('¥' + parsePrice(this.min, true), 760, (this.getYdata().minY + 14) * 2);
+					ctx.fillText('¥' + parsePrice(this.min, true), 760, (this.getYdata().minY + 14) * 2);*/
 
 				}
 			}
@@ -736,7 +670,7 @@ __tk__define(function (require, exports, module) {
 			 }, 200);
 			 });*/
 
-			var canvas = $('.QLY-canvas-sub-layout')[0];
+			var canvas = this.wrap.find('.QLY-canvas-sub-layout')[0];
 			if (canvas.getContext) {
 				var ctx = canvas.getContext('2d');
 				var xx, yy;
@@ -852,15 +786,15 @@ __tk__define(function (require, exports, module) {
 			$.each(xAxis, function (i, item) {
 				str += '<span class="QLY-qutu-sub-data-item">' + item + '</span>';
 			});
-			$('.QLY-qutu-sub-data').html(str);
+			this.wrap.find('.QLY-qutu-sub-data').html(str);
 		}
 	};
 
 
 	//暴露接口
 	module.exports = {
-		init: function (data) {
-			new TkQutu(data, {});
+		init: function (data, obj) {
+			new TkQutu(data, obj);
 		}
 	};
 });

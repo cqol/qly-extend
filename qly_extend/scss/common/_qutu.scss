@@ -1,0 +1,123 @@
+.QLY-history-wrap {
+  height: 272px;
+  position: relative;
+}
+
+.QLY-canvas-base {
+  position: absolute;
+  left: 43px;
+  top: 15px;
+  z-index: 7;
+}
+
+.QLY-canvas-layout {
+  position: absolute;
+  left: 43px;
+  top: 15px;
+  z-index: 8;
+}
+.QLY-qutu-price-top {
+  font-weight: bold;
+  span {
+    color: $color;
+  }
+}
+.QLY-history-wrap {
+  .QLY-qutu-sub-msg {
+    display: none;
+    color: #b8b8b8;
+    text-align: left;
+    height: 56px;
+    width: 120px;
+    position: absolute;
+    background: url(https://exts.taotaosou.com/browser-static/taobao/extend/pop_bg.png) no-repeat 0 0;
+    z-index: 9;
+    .QLY-qutu-sub-msg-wrap {
+      padding: 7px 0 0 10px;
+      p {
+        margin: 0;
+        line-height: 20px;
+        height: 20px;
+        span {
+          font-family: 'microsoft yahei';
+          font-weight: bold;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .QLY-qutu-sub-pointer {
+    position: absolute;
+    display: block;
+    height: 0;
+    width: 0;
+    top: -12px;
+    left: 53px;
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent;
+
+  }
+
+  .QLY-qutu-sub-con {
+    width: 478px;
+    height: 270px;
+    position: relative;
+    font-size: 12px;
+    .QLY-qutu-sub-price {
+      padding-top: 12px;
+
+      width: 40px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      .QLY-qutu-sub-price-item {
+        height: 14px;
+        line-height: 14px;
+        margin-bottom: 21px;
+        display: block;
+        text-align: right;
+      }
+      .QLY-qutu-sub-price-item-2 {
+        margin-bottom: 194px;
+      }
+      .QLY-qutu-sub-price-item-3 {
+        margin-bottom: 89px;
+      }
+    }
+    .QLY-qutu-sub-data {
+      height: 26px;
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      padding-left: 82px;
+      .QLY-qutu-sub-data-item {
+        float: left;
+        margin-right: 23px;
+        font-family: arial, sans-serif;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .QLY-canvas-sub-base {
+    position: absolute;
+    left: 43px;
+    top: 15px;
+
+    z-index: 7;
+  }
+  .QLY-canvas-sub-layout {
+    position: absolute;
+    left: 43px;
+    top: 15px;
+    z-index: 8;
+  }
+}
+
+.QLY-qutu-sub-wrap-hover {
+  top: 30px;
+  left: 0;
+}

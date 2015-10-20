@@ -11,6 +11,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"QLY-detail-box\">\n  <ul class=\"QLY-list-box\">\n    <li class=\"QLY-item\">\n      <span class=\"QLY-logo\"></span>\n    </li>\n    <li class=\"QLY-item\">\n      距离宝贝下架还有: 2天3时13分\n    </li>\n    <li class=\"QLY-item\">\n      收录时间: 2015-09-11\n    </li>\n    <li class=\"QLY-item\">\n      <ul class=\"QLY-word-list\">\n        <li>搜索词: </li>\n        <li>淘宝搜索(<i class=\"QLY-i QLY-taobaosearch\">234</i>)</li>\n        <li>直通车(<i class=\"QLY-i QLY-ztc\">12</i>)</li>\n        <li>无线搜索(<i class=\"QLY-i QLY-msearch\">123</i>)</li>\n        <li>无线直通车(<i class=\"QLY-i QLY-mztc\">0</i>)</li>\n        <li class=\"QLY-price\">价格调整</li>\n        <li class=\"QLY-taoword\">淘词</li>\n      </ul>\n    </li>\n  </ul>\n\n</div>";
   });
 
+this["JST"]["qly/detail.history"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"QLY-history-wrap\">\n  <div class=\"QLY-qutu-price-top\">\n    历史最低：<span>124</span>\n  </div>\n  <div class=\"QLY-qutu-sub-con\">\n\n    <div class=\"QLY-qutu-sub-price\">\n\n    </div>\n    <div class=\"QLY-qutu-sub-data\">\n\n    </div>\n    <canvas class=\"QLY-canvas-sub-base\" style=\"width: 440px; height: 250px;\" width=\"880\" height=\"500\"></canvas>\n    <canvas class=\"QLY-canvas-sub-layout\" style=\"width: 440px; height: 250px;\" width=\"880\" height=\"500\"></canvas>\n    <div class=\"QLY-qutu-sub-msg\">\n      <div class=\"QLY-qutu-sub-msg-wrap\">\n\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"QLY-table-footer\">\n  <span class=\"QLY-copy-right\">\n    数据更新于2015-09-15 Power by 千里眼\n  </span>\n  <a class=\"QLY-more\" href=\"#\" target=\"_blank\">\n    查看更多\n  </a>\n</div>";
+  });
+
 this["JST"]["qly/detail.msearch"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};

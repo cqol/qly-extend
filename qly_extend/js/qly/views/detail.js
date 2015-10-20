@@ -1,9 +1,8 @@
 __tk__define(function (require, exports, module) {
-	var location = window.location,
-		host = location.host;
-
 	var $ = require('../lib/jquery'),
 		utils = require('../utils'),
+		Product = require('../product'),
+		host = require('../host'),
 		tpl = require('../templates');
 	require('../lib/jquery.webui-popover'),
 
@@ -11,6 +10,7 @@ __tk__define(function (require, exports, module) {
 			init: function () {
 				console.log('init detail js');
 				if (utils.getContainer()) {
+					$(this.template()).insertBefore(utils.getContainer());
 					$(this.template()).insertBefore(utils.getContainer());
 					this.render();
 				} else {
@@ -62,17 +62,22 @@ __tk__define(function (require, exports, module) {
 				});
 			},
 			price: function () {
+				console.log(Product.item.getTitle())
+
 				console.log('价格曲线');
 				$('.QLY-price').webuiPopover({
 					type:'async',
 					url:'https://browserre.taotaosou.com/priceHistory.do?' +
-					'itemId=521364198849&website=taobao&price=8400&callback=?',
-					content: function (data) {
-						return tpl['qly/detail.ztc']();
+					'itemId=' + Product.item.getID() +
+					'&website=' + host.webSite +
+					'&price=' + Product.item.getPrice() +
+					'&callback=?',
+					content: function () {
+						return tpl['qly/detail.history']();
 					},
 
-					width: 358,
-					height: 200,
+					width: 460,
+					height: 300,
 					trigger: 'hover',
 					animation: 'pop',
 					async: {
@@ -80,7 +85,7 @@ __tk__define(function (require, exports, module) {
 							console.log('before');
 						},//executed before ajax request
 						success: function(that, data) {
-							console.log('_success');
+							require('./price/qutu').init(data, that.$target);
 						}//executed after successful ajax request
 					}
 				});
