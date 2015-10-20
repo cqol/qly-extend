@@ -11,7 +11,6 @@ __tk__define(function (require, exports, module) {
 				console.log('init detail js');
 				if (utils.getContainer()) {
 					$(this.template()).insertBefore(utils.getContainer());
-					$(this.template()).insertBefore(utils.getContainer());
 					this.render();
 				} else {
 					console.error('未匹配detail页');
