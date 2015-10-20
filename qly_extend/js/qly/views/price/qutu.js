@@ -4,9 +4,9 @@ __tk__define(function (require, exports, module) {
 		host = require('../../host'),
 		utils = require('../../utils'),
 		product = require('../../product'),
-		tts_stat = require("../../utils/tts_stat"),
 		body = $('body');
 
+	console.log(product.item.getPrice());
 	var price = '';
 	//商品当前价格；
 	if (product.item.getPrice() !== '') {
@@ -137,7 +137,7 @@ __tk__define(function (require, exports, module) {
 		//每个像素对应的价格差值；
 		this.matchX = this.fixs.xSetpPx / 10;
 
-		this.btn = $('.TK-mind-sub-qutu');
+		this.btn = $('.QLY-mind-sub-qutu');
 		this.initBtn(this.btn, tag);
 		//底部画布
 		this.drawCanvasBase(this.color, wending);
@@ -221,20 +221,20 @@ __tk__define(function (require, exports, module) {
 		initBtn: function (obj, tag) {
 			var timer = null,
 				delay = false;
-			this.msgBox = $('.TK-qutu-sub-msg');
-			var qutuBox = $('.TK-qutu-sub-warp');
-			//qutuBox.addClass('TK-qutu-sub-wrap-hover');
+			this.msgBox = $('.QLY-qutu-sub-msg');
+			var qutuBox = $('.QLY-qutu-sub-warp');
+			//qutuBox.addClass('QLY-qutu-sub-wrap-hover');
 
 			obj.on('mouseenter', function () {
 				clearTimeout(timer);
-				qutuBox.addClass('TK-qutu-sub-wrap-hover');
+				qutuBox.addClass('QLY-qutu-sub-wrap-hover');
 
 				timer = null;
 				delay = true;
 			});
 			obj.on('mouseleave', function () {
 				timer = setTimeout(function () {
-					qutuBox.removeClass('TK-qutu-sub-wrap-hover');
+					qutuBox.removeClass('QLY-qutu-sub-wrap-hover');
 					delay = false;
 					timer = null;
 				}, 300);
@@ -242,13 +242,12 @@ __tk__define(function (require, exports, module) {
 			qutuBox.on({
 				'mouseover': function () {
 					clearTimeout(timer);
-					qutuBox.addClass('TK-qutu-sub-wrap-hover');
+					qutuBox.addClass('QLY-qutu-sub-wrap-hover');
 				},
 				'mouseout': function () {
 					timer = setTimeout(function () {
-						qutuBox.removeClass('TK-qutu-sub-wrap-hover');
+						qutuBox.removeClass('QLY-qutu-sub-wrap-hover');
 						utils.stat('tool_curve_PV', true);
-						tts_stat.trackLog("tool_curve_PV");
 
 						delay = false;
 						timer = null;
@@ -600,7 +599,7 @@ __tk__define(function (require, exports, module) {
 		 * 曲线图底图
 		 */
 		drawCanvasBase: function (color, wending) {
-			var canvas = document.getElementById('TK-canvas-sub-base');
+			var canvas = $('.QLY-canvas-sub-base')[0];
 			var base = this.fixs.beginXY,
 				_this = this;
 
@@ -737,7 +736,7 @@ __tk__define(function (require, exports, module) {
 			 }, 200);
 			 });*/
 
-			var canvas = document.getElementById('TK-canvas-sub-layout');
+			var canvas = $('.QLY-canvas-sub-layout')[0];
 			if (canvas.getContext) {
 				var ctx = canvas.getContext('2d');
 				var xx, yy;
@@ -764,7 +763,7 @@ __tk__define(function (require, exports, module) {
 									left: xx - 16,
 									top: (item.y / 2 - 46)
 								}).show();
-								_this.msgBox.html('<div class="TK-qutu-sub-msg-wrap"><p>日期：' + _this.pxTodata(xx) + '</p><p>价格：<span>&yen ' + item.p + '</span></p></div>');
+								_this.msgBox.html('<div class="QLY-qutu-sub-msg-wrap"><p>日期：' + _this.pxTodata(xx) + '</p><p>价格：<span>&yen ' + item.p + '</span></p></div>');
 
 								ctx.beginPath();
 								ctx.arc(xx * 2, item.y, 8, 0, Math.PI * 2, false);
@@ -839,10 +838,10 @@ __tk__define(function (require, exports, module) {
 			var yAxis = this.yAxis;
 			var yStr = '';
 			for (var i = 0; i < yAxis.length; i++) {
-				yStr += '<span class="TK-qutu-sub-price-item TK-qutu-sub-price-item-' + this.yAxisClass + '">' + parsePrice(yAxis[i]) +
+				yStr += '<span class="QLY-qutu-sub-price-item QLY-qutu-sub-price-item-' + this.yAxisClass + '">' + parsePrice(yAxis[i]) +
 					'</span>';
 			}
-			$('.TK-qutu-sub-price').html(yStr);
+			$('.QLY-qutu-sub-price').html(yStr);
 		},
 		/**
 		 * 添加x轴结构
@@ -851,27 +850,17 @@ __tk__define(function (require, exports, module) {
 			var xAxis = this.xAxis;
 			var str = '';
 			$.each(xAxis, function (i, item) {
-				str += '<span class="TK-qutu-sub-data-item">' + item + '</span>';
+				str += '<span class="QLY-qutu-sub-data-item">' + item + '</span>';
 			});
-			$('.TK-qutu-sub-data').html(str);
+			$('.QLY-qutu-sub-data').html(str);
 		}
 	};
 
 
 	//暴露接口
 	module.exports = {
-		init: function () {
-			body.on('tk.priceHistory', function (e, data) {
-
-				utils.stat('tool_curvebutton_PV', true);
-				new TkQutu(data, {});
-			});
-			$.getJSON('//browserre.taotaosou.com/priceHistory.do?itemId=' + product.item.getID() +
-				'&website=' + host.webSite +
-				'&price=' + price +
-				'&callback=?', function (data) {
-				body.trigger('tk.priceHistory', [data]);
-			});
+		init: function (data) {
+			new TkQutu(data, {});
 		}
 	};
 });
