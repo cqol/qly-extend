@@ -651,6 +651,7 @@ __tk__define(function (require, exports, module) {
 					ctx.fillText('最低价', 760, (this.getYdata().minY + 2) * 2);
 					ctx.fillText('¥' + parsePrice(this.min, true), 760, (this.getYdata().minY + 14) * 2);*/
 
+					this.wrap.find('.QLY-qutu-price-top span').text('¥' + parsePrice(this.min, true));
 				}
 			}
 		},

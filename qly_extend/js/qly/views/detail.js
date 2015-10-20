@@ -219,8 +219,7 @@ __tk__define(function (require, exports, module) {
 			},
 
 
-
-			price: function () {
+			price: function (data) {
 				console.log(Product.item.getTitle())
 
 				console.log('价格曲线');
@@ -232,7 +231,7 @@ __tk__define(function (require, exports, module) {
 					'&price=' + Product.item.getPrice() +
 					'&callback=?',
 					content: function () {
-						return tpl['qly/detail.history']();
+						return tpl['qly/detail.history']({time: data.updateTime});
 					},
 
 					width: 460,
@@ -249,25 +248,12 @@ __tk__define(function (require, exports, module) {
 					}
 				});
 			},
-			taoword: function () {
+			taoword: function (data) {
 				$('.QLY-taoword').webuiPopover({
-					//content: tpl['qly/detail.table'](),
-					//type:'async',
-					//url:'http://192.168.1.226:8000/addFav',
-					content: tpl['qly/detail.taoword'](),
-
+					content: tpl['qly/detail.taoword']({time: data.updateTime}),
 					width: 358,
 					trigger: 'hover',
 					animation: 'pop',
-					//async: {
-					//	before: function(that, xhr) {
-					//		console.log('before');
-					//		console.log(xhr.promise());
-					//	},//executed before ajax request
-					//	success: function(that, data) {
-					//		console.log(data)
-					//	}//executed after successful ajax request
-					//}
 				});
 			},
 			render: function (data) {
@@ -277,8 +263,8 @@ __tk__define(function (require, exports, module) {
 				this.mztc(data);
 
 
-				this.price();
-				this.taoword();
+				this.price(data);
+				this.taoword(data);
 			}
 		};
 });
