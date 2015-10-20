@@ -8,65 +8,225 @@ __tk__define(function (require, exports, module) {
 
 		module.exports = {
 			init: function () {
+				var data = {
+					spid: 520120525716,
+					pid: 3438435147,
+					sid: 167912,
+					zrssList: [
+						{
+							kw: "茵曼裤",
+							page: 1,
+							num: 1
+						},
+						{
+							kw: "打底裤 紧身",
+							page: 1,
+							num: 1
+						},
+						{
+							kw: "棉质打底裤",
+							page: 1,
+							num: 1
+						},
+						{
+							kw: "黑色打底裤棉质",
+							page: 1,
+							num: 1
+						},
+						{
+							kw: "茵曼裤子 女",
+							page: 1,
+							num: 1
+						},
+						{
+							kw: "紧身裤棉 女",
+							page: 1,
+							num: 2
+						},
+						{
+							kw: "打底裤棉",
+							page: 1,
+							num: 2
+						},
+						{
+							kw: "打底裤 修身款",
+							page: 1,
+							num: 2
+						},
+						{
+							kw: "紧身裤棉质",
+							page: 1,
+							num: 2
+						},
+						{
+							kw: "茵曼打底裤",
+							page: 2,
+							num: 3
+						}
+					],
+					ztcList: [
+						{
+							kw: "茵曼裤",
+							page: 0,
+							num: 1
+						},
+						{
+							kw: "茵曼打底裤",
+							page: 0,
+							num: 1
+						},
+						{
+							kw: "绒羊茵曼女装店",
+							page: 0,
+							num: 4
+						},
+						{
+							kw: "snidel爆款",
+							page: 0,
+							num: 5
+						},
+						{
+							kw: "茵莎蔓姿打底裤",
+							page: 0,
+							num: 7
+						},
+						{
+							kw: "原创打底裤文艺女",
+							page: 0,
+							num: 19
+						},
+						{
+							kw: "休闲打底裤女薄",
+							page: 0,
+							num: 21
+						},
+						{
+							kw: "ungrid",
+							page: 0,
+							num: 24
+						},
+						{
+							kw: "少女打底裤 纯棉",
+							page: 0,
+							num: 26
+						},
+						{
+							kw: "打底 原单",
+							page: 0,
+							num: 26
+						}
+					],
+					zrssMList: [
+						{
+							kw: "茵曼旗舰店 长裤",
+							page: 1,
+							num: 1
+						},
+						{
+							kw: "茵曼裤",
+							page: 1,
+							num: 2
+						},
+						{
+							kw: "茵曼裤子 女",
+							page: 1,
+							num: 2
+						},
+						{
+							kw: "紧身裤棉质",
+							page: 1,
+							num: 3
+						},
+						{
+							kw: "棉质裤女秋",
+							page: 1,
+							num: 3
+						},
+						{
+							kw: "茵曼打底裤",
+							page: 3,
+							num: 22
+						},
+						{
+							kw: "秋装 女",
+							page: 4,
+							num: 9
+						},
+						{
+							kw: "秋装女打底裤",
+							page: 6,
+							num: 13
+						}
+					],
+					ztcMList: [
+						{
+							kw: "棉质打底裤女外穿",
+							page: 4,
+							num: 21
+						}
+					],
+					zrssKeywordNum: 11,
+					zrssMKeywordNum: 8,
+					ztcKeywordNum: 225,
+					ztcMKeywordNum: 1,
+					createTime: "2015-06-24",
+					updateTime: "2015-06-24",
+					offSaleTime: "3天4小时54分37秒"
+				};
+
 				console.log('init detail js');
 				if (utils.getContainer()) {
-					$(this.template()).insertBefore(utils.getContainer());
-					this.render();
+					$(this.template(data)).insertBefore(utils.getContainer());
+					this.render(data);
 				} else {
 					console.error('未匹配detail页');
 				}
 			},
 			template: tpl['qly/detail.box'],
 
-			taosearch: function () {
+			taosearch: function (data) {
 				$('.QLY-taobaosearch').webuiPopover({
-					//content: tpl['qly/detail.table'](),
-					//type:'async',
-					//url:'http://192.168.1.226:8000/addFav',
-					content: tpl['qly/detail.taosearch'](),
-
+					content: tpl['qly/detail.taosearch']({list: data.zrssList, time: data.updateTime}),
 					width: 358,
 					trigger: 'hover',
 					animation: 'pop',
-					//async: {
-					//	before: function(that, xhr) {
-					//		console.log('before');
-					//		console.log(xhr.promise());
-					//	},//executed before ajax request
-					//	success: function(that, data) {
-					//		console.log(data)
-					//	}//executed after successful ajax request
-					//}
 				});
 			},
-			ztc: function () {
+			ztc: function (data) {
 				$('.QLY-ztc').webuiPopover({
-					//content: tpl['qly/detail.table'](),
-					//type:'async',
-					//url:'http://192.168.1.226:8000/addFav',
-					content: tpl['qly/detail.ztc'](),
+					content: tpl['qly/detail.ztc']({list: data.ztcList, time: data.updateTime}),
+					width: 358,
+					trigger: 'hover',
+					animation: 'pop',
+				});
+			},
+			msearch: function (data) {
+				$('.QLY-msearch').webuiPopover({
+					content: tpl['qly/detail.msearch']({list: data.zrssMList, time: data.updateTime}),
 
 					width: 358,
 					trigger: 'hover',
 					animation: 'pop',
-					//async: {
-					//	before: function(that, xhr) {
-					//		console.log('before');
-					//		console.log(xhr.promise());
-					//	},//executed before ajax request
-					//	success: function(that, data) {
-					//		console.log(data)
-					//	}//executed after successful ajax request
-					//}
 				});
 			},
+			mztc: function (data) {
+				$('.QLY-mztc').webuiPopover({
+					content: tpl['qly/detail.msearch']({list: data.ztcMList, time: data.updateTime}),
+					width: 358,
+					trigger: 'hover',
+					animation: 'pop',
+				});
+			},
+
+
+
 			price: function () {
 				console.log(Product.item.getTitle())
 
 				console.log('价格曲线');
 				$('.QLY-price').webuiPopover({
-					type:'async',
-					url:'https://browserre.taotaosou.com/priceHistory.do?' +
+					type: 'async',
+					url: 'https://browserre.taotaosou.com/priceHistory.do?' +
 					'itemId=' + Product.item.getID() +
 					'&website=' + host.webSite +
 					'&price=' + Product.item.getPrice() +
@@ -80,10 +240,10 @@ __tk__define(function (require, exports, module) {
 					trigger: 'hover',
 					animation: 'pop',
 					async: {
-						before: function(that, xhr) {
+						before: function (that, xhr) {
 							console.log('before');
 						},//executed before ajax request
-						success: function(that, data) {
+						success: function (that, data) {
 							require('./price/qutu').init(data, that.$target);
 						}//executed after successful ajax request
 					}
@@ -110,53 +270,11 @@ __tk__define(function (require, exports, module) {
 					//}
 				});
 			},
-			msearch: function () {
-				$('.QLY-msearch').webuiPopover({
-					//content: tpl['qly/detail.table'](),
-					//type:'async',
-					//url:'http://192.168.1.226:8000/addFav',
-					content: tpl['qly/detail.msearch'](),
-
-					width: 358,
-					trigger: 'hover',
-					animation: 'pop',
-					//async: {
-					//	before: function(that, xhr) {
-					//		console.log('before');
-					//		console.log(xhr.promise());
-					//	},//executed before ajax request
-					//	success: function(that, data) {
-					//		console.log(data)
-					//	}//executed after successful ajax request
-					//}
-				});
-			},
-			mztc: function () {
-				$('.QLY-mztc').webuiPopover({
-					//content: tpl['qly/detail.table'](),
-					//type:'async',
-					//url:'http://192.168.1.226:8000/addFav',
-					content: tpl['qly/detail.msearch'](),
-
-					width: 358,
-					trigger: 'hover',
-					animation: 'pop',
-					//async: {
-					//	before: function(that, xhr) {
-					//		console.log('before');
-					//		console.log(xhr.promise());
-					//	},//executed before ajax request
-					//	success: function(that, data) {
-					//		console.log(data)
-					//	}//executed after successful ajax request
-					//}
-				});
-			},
-			render: function () {
-				this.taosearch();
-				this.ztc();
-				this.msearch();
-				this.mztc();
+			render: function (data) {
+				this.taosearch(data);
+				this.ztc(data);
+				this.msearch(data);
+				this.mztc(data);
 
 
 				this.price();

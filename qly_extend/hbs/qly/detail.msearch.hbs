@@ -10,23 +10,20 @@
   </tr>
   </thead>
   <tbody>
+  {{#each list}}
+    <tr>
+      <td class="QLY-table-word">{{kw}}</td>
+      <td class="QLY-table-value">第{{page}}页 {{num}}位</td>
+    </tr>
 
-  <tr>
-    <td class="QLY-table-word">欧美无袖</td>
-    <td class="QLY-table-value">第10页 16位</td>
-  </tr>
-
-  <tr>
-    <td class="QLY-table-word">欧美无袖1</td>
-    <td class="QLY-table-value">第11页 16位</td>
-  </tr>
+  {{/each}}
 
   </tbody>
 </table>
 
 <div class="QLY-table-footer">
   <span class="QLY-copy-right">
-    数据更新于2015-09-15 Power by 千里眼
+    数据更新于{{time}} Power by 千里眼
   </span>
   <a class="QLY-more" href="#" target="_blank">
     查看更多

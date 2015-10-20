@@ -157,7 +157,6 @@ __tk__define(function (require, exports) {
 			'tklist.global.init': function () {
 				var delay = null,
 				//临时数组 存图片id
-					loadImgArr = [],
 				//自动触发延迟
 				// autoTime = 2000,
 					$container = $('#' + J.prefix + 'media');
@@ -166,16 +165,6 @@ __tk__define(function (require, exports) {
 					var target = $(item);
 
 					if (isImage(item)) {
-						//原品点击 id数组
-						if (J.host.isTBList || J.host.isTMList) {
-							if (!target.data('cqol')) {
-								var cqol = new J.Product(this);
-								if (cqol.getID() !== '') {
-									loadImgArr.push(cqol.getID());
-								}
-								target.data('cqol', 'true');
-							}
-						}
 						if (!target.data('tk')) {
 							target.data('tk', 'true').on('mouseenter', function () {
 								var _this = this;
@@ -209,22 +198,6 @@ __tk__define(function (require, exports) {
 						}
 					}
 				});
-				//原品点击需求
-				/*if (J.host.isTBList || J.host.isTMList) {
-				 //匹配上的图片请求广告系统
-				 if (loadImgArr.length > 0 || loadImgArr[0]) {
-				 var idsStr = '';
-				 for (var i = 0, len = loadImgArr.length; i < len; i++) {
-				 idsStr += ',' + loadImgArr[i];
-				 }
-				 $.getJSON('//show.kc.taotaosou.com/cooperation.do?id=' + idsStr.substring(1) +
-				 '&jsonp=?', function (data) {
-				 $.each(data, function (i, item) {
-				 window.imgIdArr.push(item);
-				 });
-				 });
-				 }
-				 }*/
 
 				if (_.isElement($container[0]) === false) {
 					J.list.render();

@@ -102,7 +102,11 @@ __tk__define(function (require, exports, module) {
 				taobao_detail();
 			}, 200);
 		}
+		else if (host.isTBList || host.isTMList) {
+			taobao_list()
+		}
 	}
+
 
 	//暴露初始化接口
 	module.exports = {
