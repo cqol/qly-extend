@@ -6,7 +6,6 @@ __tk__define(function (require, exports) {
 	var Product = require('../product'),
 		host = require('../host'),
 		utils = require('../utils'),
-		prefix = require('./prefix').app,
 		list = require('./render.list'),
 		body = $('body');
 	var tpl = require('../templates');
@@ -306,7 +305,7 @@ __tk__define(function (require, exports) {
 		}
 		var $img = $(img),
 		//TODO 改用 class 区分淘淘搜比价图片会更高效
-			isTKImage = _.isElement($img.parents('#' + prefix + 'media')[0]),
+			isTKImage = _.isElement($img.parents('#' + 'QLY_' + 'media')[0]),
 			isMLS = host.isMLSList && src.match(/.+_\d{3,}_\d.*\./),
 			isMGJ = host.isMGJList && $img.parent().hasClass('img'),
 		//s.taobao.com P4P product, use alicdn
