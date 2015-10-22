@@ -22,8 +22,8 @@ __tk__define(function (require, exports, module) {
 			var itemData = data[Product.item.getID()];
 			var _this = this;
 			if (itemData) {
-				console.log(Product.item.getPrice())
 				box.append(tpl['qly/list.box'](itemData));
+
 				this.taosearch(itemData);
 				this.msearch(itemData);
 				this.mztc(itemData);
@@ -87,7 +87,6 @@ __tk__define(function (require, exports, module) {
 					},//executed before ajax request
 					success: function (that, data) {
 						new qutu(data, that.$target, price);
-						//require('./price/qutu').init(data, that.$target);
 					}//executed after successful ajax request
 				}
 			});

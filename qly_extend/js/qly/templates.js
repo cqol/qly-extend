@@ -175,11 +175,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"QLY-list-box\">\n  <div class=\"QLY-ul-box\">\n    <div class=\"QLY-item\">\n      <span class=\"QLY-logo\">这里是";
-  if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  buffer += escapeExpression(stack1)
-    + "</span>\n      <div class=\"QLY-pull-right\">\n        <span class=\"QLY-price\">价格调整</span>\n        <span class=\"QLY-taoword\">淘词</span>\n      </div>\n    </div>\n\n    <div class=\"QLY-item\">\n      下架: ";
+  buffer += "<div class=\"QLY-list-box\">\n  <div class=\"QLY-ul-box\">\n    <div class=\"QLY-item\">\n      <span class=\"QLY-logo\">这里是logo</span>\n      <div class=\"QLY-pull-right\">\n        <span class=\"QLY-price\">价格调整</span>\n        <span class=\"QLY-taoword\">淘词</span>\n      </div>\n    </div>\n\n    <div class=\"QLY-item\">\n      下架: ";
   if (stack1 = helpers.offSaleTime) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.offSaleTime; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
