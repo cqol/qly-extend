@@ -1,3 +1,3 @@
-# ttk_extend
+# qly_extend
 
-### ttk chrome extend
+### qly chrome extend
