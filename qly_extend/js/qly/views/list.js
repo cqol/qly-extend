@@ -13,7 +13,7 @@ __tk__define(function (require, exports) {
 
 	var data = [
 		{
-			spid: 43716117395,
+			spid: 44718841980,
 			pid: 3438435147,
 			sid: 167912,
 			zrssList: [
@@ -125,7 +125,7 @@ __tk__define(function (require, exports) {
 			updateTime: "3天4小时27分16秒"
 		},
 		{
-			spid: 40234647253,
+			spid: 521388612951,
 			pid: 3490772265,
 			sid: 167912,
 			zrssList: [
@@ -436,7 +436,6 @@ __tk__define(function (require, exports) {
 					_parmString += ',' + item;
 				});
 
-				console.log(_parmString);
 				//$.ajax({
 				//	dataType: 'jsonp',
 				//	scriptCharset: 'UTF-8',

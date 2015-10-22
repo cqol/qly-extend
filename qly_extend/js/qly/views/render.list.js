@@ -65,7 +65,6 @@ __tk__define(function (require, exports, module) {
 			});
 		},
 		price: function (data) {
-			console.log('--1-1-1-1-');
 			var price = Product.item.getPrice();
 			$('.QLY-price').webuiPopover({
 				type: 'async',

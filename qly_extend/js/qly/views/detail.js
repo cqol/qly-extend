@@ -4,6 +4,8 @@ __tk__define(function (require, exports, module) {
 		Product = require('../product'),
 		host = require('../host'),
 		tpl = require('../templates');
+	var qutu = require('./price/qutu');
+
 	require('../lib/jquery.webui-popover'),
 
 		module.exports = {
@@ -220,6 +222,8 @@ __tk__define(function (require, exports, module) {
 
 
 			price: function (data) {
+				var price = Product.item.getPrice();
+
 				$('.QLY-price').webuiPopover({
 					type: 'async',
 					url: 'https://browserre.taotaosou.com/priceHistory.do?' +
@@ -240,7 +244,7 @@ __tk__define(function (require, exports, module) {
 							console.log('before');
 						},//executed before ajax request
 						success: function (that, data) {
-							require('./price/qutu').init(data, that.$target);
+							new qutu(data, that.$target, price);
 						}//executed after successful ajax request
 					}
 				});
