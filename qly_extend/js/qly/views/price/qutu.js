@@ -7,12 +7,6 @@ __tk__define(function (require, exports, module) {
 		body = $('body');
 
 	var price = '';
-	//商品当前价格；
-	if (product.item.getPrice() !== '') {
-		price = parseInt(product.item.getPrice(), 10);
-	} else {
-		return;
-	}
 
 	function format(num) {
 		if (num < 10) {
@@ -47,7 +41,8 @@ __tk__define(function (require, exports, module) {
 		return p;
 	}
 
-	function TkQutu(bigdata, obj) {
+	function TkQutu(bigdata, obj, price) {
+		console.log(bigdata);
 		this.wrap = obj;
 		var data = [];
 		if ('priceHistoryList' in bigdata) {
@@ -600,7 +595,7 @@ __tk__define(function (require, exports, module) {
 					this.dashedLineTo(ctx, x[0], y[0], x[1], y[1], 4);
 					ctx.font = "24px Arial";
 					ctx.fillStyle = "#666";
-					ctx.fillText('¥' + parsePrice(this.max, true), 760, 230);
+					//ctx.fillText('¥' + parsePrice(this.max, true), 760, 230);
 				}
 				else if (wending) {
 					for (n = 0; n < y.length; n++) {
@@ -622,7 +617,7 @@ __tk__define(function (require, exports, module) {
 					ctx.strokeStyle = color;
 					ctx.font = "24px Arial";
 					ctx.fillStyle = "#666";
-					ctx.fillText('¥' + parsePrice(this.max, true), 760, 230);
+					//ctx.fillText('¥' + parsePrice(this.max, true), 760, 230);
 				}
 				//有数据
 				else {
@@ -792,10 +787,11 @@ __tk__define(function (require, exports, module) {
 	};
 
 
+	return TkQutu;
 	//暴露接口
-	module.exports = {
-		init: function (data, obj) {
-			new TkQutu(data, obj);
-		}
-	};
+	//module.exports = {
+	//	init: function (data, obj) {
+	//		new TkQutu(data, obj);
+	//	}
+	//};
 });

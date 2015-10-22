@@ -2,6 +2,7 @@
 __tk__define(function (require, exports, module) {
 	var win = window,
 		$ = require('../lib/jquery'),
+		_ = require('../lib/underscore'),
 		host = require('../host'),
 		utils = require('../utils'),
 		Product = require('../product'),
@@ -91,9 +92,10 @@ __tk__define(function (require, exports, module) {
 
 		require('./list').init();
 
-		$(window).on('scroll', function () {
+		var throttled = _.throttle(function () {
 			body.trigger('tklist.global.init');
-		});
+		}, 500);
+		$(window).on('scroll', throttled);
 	}
 
 

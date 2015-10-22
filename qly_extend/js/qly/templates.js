@@ -42,7 +42,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"QLY-history-wrap\">\n  <div class=\"QLY-qutu-price-top\">\n    历史最低：<span>124</span>\n  </div>\n  <div class=\"QLY-qutu-sub-con\">\n\n    <div class=\"QLY-qutu-sub-price\">\n\n    </div>\n    <div class=\"QLY-qutu-sub-data\">\n\n    </div>\n    <canvas class=\"QLY-canvas-sub-base\" style=\"width: 440px; height: 250px;\" width=\"880\" height=\"500\"></canvas>\n    <canvas class=\"QLY-canvas-sub-layout\" style=\"width: 440px; height: 250px;\" width=\"880\" height=\"500\"></canvas>\n    <div class=\"QLY-qutu-sub-msg\">\n      <div class=\"QLY-qutu-sub-msg-wrap\">\n\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"QLY-table-footer\">\n  <span class=\"QLY-copy-right\">\n    数据更新于";
+  buffer += "<div class=\"QLY-history-wrap\">\n  <div class=\"QLY-qutu-price-top\">\n    历史最低：<span></span>\n  </div>\n  <div class=\"QLY-qutu-sub-con\">\n\n    <div class=\"QLY-qutu-sub-price\">\n\n    </div>\n    <div class=\"QLY-qutu-sub-data\">\n\n    </div>\n    <canvas class=\"QLY-canvas-sub-base\" style=\"width: 440px; height: 250px;\" width=\"880\" height=\"500\"></canvas>\n    <canvas class=\"QLY-canvas-sub-layout\" style=\"width: 440px; height: 250px;\" width=\"880\" height=\"500\"></canvas>\n    <div class=\"QLY-qutu-sub-msg\">\n      <div class=\"QLY-qutu-sub-msg-wrap\">\n\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"QLY-table-footer\">\n  <span class=\"QLY-copy-right\">\n    数据更新于";
   if (stack1 = helpers.time) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.time; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -172,10 +172,31 @@ function program1(depth0,data) {
 this["JST"]["qly/list.box"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  return "<div class=\"QLY-list-box\">\n  <ul class=\"QLY-ul-box\">\n    <li class=\"QLY-item\">\n      <span class=\"QLY-logo\"></span>\n      <div class=\"QLY-pull-right\">\n        <li class=\"QLY-price\">价格调整</li>\n        <li class=\"QLY-taoword\">淘词</li>\n      </div>\n    </li>\n    <li class=\"QLY-item\">\n      下架: xxx\n    </li>\n    <li class=\"QLY-item\">\n      搜索词: 淘宝(<i class=\"QLY-i QLY-taobaosearch\">xxx</i>)\n    </li>\n    <li class=\"QLY-item\">\n      无线端: 搜索(<i class=\"QLY-i QLY-msearch\">xxxxx</i>)\n      直通车(<i class=\"QLY-i QLY-mztc\">xxx</i>)\n    </li>\n  </ul>\n</div>";
+  buffer += "<div class=\"QLY-list-box\">\n  <div class=\"QLY-ul-box\">\n    <div class=\"QLY-item\">\n      <span class=\"QLY-logo\">这里是";
+  if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</span>\n      <div class=\"QLY-pull-right\">\n        <span class=\"QLY-price\">价格调整</span>\n        <span class=\"QLY-taoword\">淘词</span>\n      </div>\n    </div>\n\n    <div class=\"QLY-item\">\n      下架: ";
+  if (stack1 = helpers.offSaleTime) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.offSaleTime; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\n    </div>\n\n    <div class=\"QLY-item\">\n      搜索词: 淘宝(<i class=\"QLY-i QLY-taobaosearch\">";
+  if (stack1 = helpers.zrssKeywordNum) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.zrssKeywordNum; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</i>)\n    </div>\n\n    <div class=\"QLY-item\">\n      无线端: 搜索(<i class=\"QLY-i QLY-msearch\">";
+  if (stack1 = helpers.zrssMKeywordNum) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.zrssMKeywordNum; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</i>)\n      直通车(<i class=\"QLY-i QLY-mztc\">";
+  if (stack1 = helpers.ztcKeywordNum) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.ztcKeywordNum; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</i>)\n    </div>\n  </div>\n</div>";
+  return buffer;
   });
 
 return this["JST"];

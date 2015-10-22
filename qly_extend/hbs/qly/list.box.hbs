@@ -1,21 +1,24 @@
 <div class="QLY-list-box">
-  <ul class="QLY-ul-box">
-    <li class="QLY-item">
-      <span class="QLY-logo"></span>
+  <div class="QLY-ul-box">
+    <div class="QLY-item">
+      <span class="QLY-logo">这里是{{id}}</span>
       <div class="QLY-pull-right">
-        <li class="QLY-price">价格调整</li>
-        <li class="QLY-taoword">淘词</li>
+        <span class="QLY-price">价格调整</span>
+        <span class="QLY-taoword">淘词</span>
       </div>
-    </li>
-    <li class="QLY-item">
-      下架: xxx
-    </li>
-    <li class="QLY-item">
-      搜索词: 淘宝(<i class="QLY-i QLY-taobaosearch">xxx</i>)
-    </li>
-    <li class="QLY-item">
-      无线端: 搜索(<i class="QLY-i QLY-msearch">xxxxx</i>)
-      直通车(<i class="QLY-i QLY-mztc">xxx</i>)
-    </li>
-  </ul>
+    </div>
+
+    <div class="QLY-item">
+      下架: {{offSaleTime}}
+    </div>
+
+    <div class="QLY-item">
+      搜索词: 淘宝(<i class="QLY-i QLY-taobaosearch">{{zrssKeywordNum}}</i>)
+    </div>
+
+    <div class="QLY-item">
+      无线端: 搜索(<i class="QLY-i QLY-msearch">{{zrssMKeywordNum}}</i>)
+      直通车(<i class="QLY-i QLY-mztc">{{ztcKeywordNum}}</i>)
+    </div>
+  </div>
 </div>

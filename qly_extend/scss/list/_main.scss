@@ -1,5 +1,4 @@
 .QLY-list-box {
-  width: 100%;
   i {
     font-style: normal;
     &.QLY-i {
@@ -8,7 +7,22 @@
       text-decoration: underline;
     }
   }
+
+  .QLY-ul-box {
+    margin: 10px;
+    padding-top: 10px;
+
+    &:first-child {
+      margin-bottom: 6px;
+    }
+  }
+  .QLY-ul-box, .QLY-item {
+    overflow: hidden;
+  }
+  .QLY-item {
+    margin: 2px 0;
+  }
 }
 .m-itemlist .grid .item {
-  height: 500px !important;
+  height: 460px !important;
 }
