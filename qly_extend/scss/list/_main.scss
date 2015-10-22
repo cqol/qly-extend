@@ -1,0 +1,14 @@
+.QLY-list-box {
+  width: 100%;
+  i {
+    font-style: normal;
+    &.QLY-i {
+      color: $color;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+.m-itemlist .grid .item {
+  height: 500px !important;
+}

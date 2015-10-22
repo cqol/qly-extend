@@ -14,6 +14,7 @@ __tk__define(function(require, exports, module) {
 		}
 	};
 });
+/*
 
 jQuery1112028732391027733684_1444633812306(
 	[
@@ -457,4 +458,4 @@ jQuery1112028732391027733684_1444633812306(
 		createTime: "2015-06-24",
 		offSaleTime: "3天4小时54分37秒"
 	}
-)
+)*/

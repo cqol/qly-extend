@@ -220,9 +220,6 @@ __tk__define(function (require, exports, module) {
 
 
 			price: function (data) {
-				console.log(Product.item.getTitle())
-
-				console.log('价格曲线');
 				$('.QLY-price').webuiPopover({
 					type: 'async',
 					url: 'https://browserre.taotaosou.com/priceHistory.do?' +
@@ -261,7 +258,6 @@ __tk__define(function (require, exports, module) {
 				this.ztc(data);
 				this.msearch(data);
 				this.mztc(data);
-
 
 				this.price(data);
 				this.taoword(data);

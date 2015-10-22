@@ -1,10 +1,15 @@
 $bg-secondary: #f9fafc;
 $table-border-color: #ddd !default;
+$color: #ff4600;
 
 @import "./detail/main";
+@import "./list/main";
 @import "./lib/jquery.webui-popover";
 @import "./common/qutu";
 
 .QLY-copy-right {
   color: #999;
+}
+.QLY-pull-right {
+  float: right;
 }

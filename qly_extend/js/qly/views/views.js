@@ -88,6 +88,12 @@ __tk__define(function (require, exports, module) {
 	// 淘宝、天猫list
 	function taobao_list() {
 		console.log('list');
+
+		require('./list').init();
+
+		$(window).on('scroll', function () {
+			body.trigger('tklist.global.init');
+		});
 	}
 
 

@@ -8,7 +8,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"QLY-detail-box\">\n  <ul class=\"QLY-list-box\">\n    <li class=\"QLY-item\">\n      <span class=\"QLY-logo\"></span>\n    </li>\n    <li class=\"QLY-item\">\n      距离宝贝下架还有: ";
+  buffer += "<div class=\"QLY-detail-box\">\n  <ul class=\"QLY-list-box\">\n    <li class=\"QLY-item\">\n      <span class=\"QLY-logo\"></span>\n      <div class=\"QLY-pull-right\">\n        <span class=\"QLY-price\">价格调整</span>\n        <span class=\"QLY-taoword\">淘词</span>\n      </div>\n\n    </li>\n    <li class=\"QLY-item\">\n      距离宝贝下架还有: ";
   if (stack1 = helpers.offSaleTime) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.offSaleTime; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -167,6 +167,15 @@ function program1(depth0,data) {
   buffer += escapeExpression(stack1)
     + " Power by 千里眼\n  </span>\n  <a class=\"QLY-more\" href=\"#\" target=\"_blank\">\n    查看更多\n  </a>\n</div>";
   return buffer;
+  });
+
+this["JST"]["qly/list.box"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"QLY-list-box\">\n  <ul class=\"QLY-ul-box\">\n    <li class=\"QLY-item\">\n      <span class=\"QLY-logo\"></span>\n      <div class=\"QLY-pull-right\">\n        <li class=\"QLY-price\">价格调整</li>\n        <li class=\"QLY-taoword\">淘词</li>\n      </div>\n    </li>\n    <li class=\"QLY-item\">\n      下架: xxx\n    </li>\n    <li class=\"QLY-item\">\n      搜索词: 淘宝(<i class=\"QLY-i QLY-taobaosearch\">xxx</i>)\n    </li>\n    <li class=\"QLY-item\">\n      无线端: 搜索(<i class=\"QLY-i QLY-msearch\">xxxxx</i>)\n      直通车(<i class=\"QLY-i QLY-mztc\">xxx</i>)\n    </li>\n  </ul>\n</div>";
   });
 
 return this["JST"];
